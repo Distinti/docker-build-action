@@ -15,3 +15,5 @@ This GitHub action will log into the specified Docker Registry and build 1 or 2 
 `tag`: Docker image tag
 
 `build_args`: Environment variables passed to docker build
+
+`secrets`: BuildKit secrets exposed only to Dockerfile steps using `RUN --mount=type=secret`

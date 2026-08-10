@@ -25,6 +25,9 @@ inputs:
   build_args:
     description: "Environment variables passed to docker build"
     required: false
+  secrets:
+    description: "BuildKit secrets exposed only to RUN --mount=type=secret"
+    required: false
   extra_tags:
     description: "Additional tags, needs the full version of tags with image name"
     required: false
@@ -68,6 +71,7 @@ runs:
         platforms: ${{ inputs.platforms }}
         push: true
         build-args: ${{ inputs.build_args }}
+        secrets: ${{ inputs.secrets }}
         tags: |
           ${{ inputs.image }}:${{ inputs.tag }}
           ${{ inputs.extra_tags }}
